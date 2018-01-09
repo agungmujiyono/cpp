@@ -1,0 +1,55 @@
+//menentukan total pembelian minuman
+#include <stdio.h>
+#include <iostream.h>
+#include <conio.h>
+main()
+{
+int jumlah,kode;
+float harga,total;
+double bayar;
+printf("================================\n");
+printf("kode    Jenis         Harga\n");
+printf("===     =====         =========\n");
+printf("1       Milo          Rp 10000\n");
+printf("2       Kopi          Rp 3000\n");
+printf("3       Teh Manis     Rp 2500\n");
+printf("4       Jus           Rp 5000\n");
+printf("================================\n");
+total=0;
+menu:
+{
+printf("\nMasukkan kode   minuman : ");
+scanf("%d",&kode);
+printf("Masukkan jumlah pesanan : ");
+scanf("%d",&jumlah);
+printf("\n====================================\n");
+if(kode==1)
+harga = (float) 10000*jumlah;
+else if(kode==2)                                                                                                                                                                                                      
+harga = (float)3000*jumlah;
+else if(kode==3)
+harga = (float)2500*jumlah;
+else if(kode==4)
+harga = (float)5000*jumlah;
+total=total+harga;
+}
+if(total > 100000)
+bayar=total-(0.15*total);
+else
+bayar=total;
+printf("Harga yang harus dibayar =%10.2f\n",bayar);
+getch();
+int jawab;
+cout<<"\n";
+cout<<"kembali ke menu? \n";
+cout<<"1. ya \n";
+cout<<"2. tidak/exit \n";
+cout<<"3.kesalahan menginput program akan berhenti\n";
+cin>>jawab;
+
+if (jawab==1)
+goto menu;
+else if(jawab==2)
+goto exit;
+exit:
+}
