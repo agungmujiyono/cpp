@@ -1,2 +1,2 @@
-# tugas-uas
-Program KRS Offline menggunakan C++
+# Kumpulan Tugas Pemograman C++
+
