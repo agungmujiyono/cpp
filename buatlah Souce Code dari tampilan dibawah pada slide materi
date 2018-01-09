@@ -1,0 +1,25 @@
+//buatlah Souce Code dari tampilan dibawah pada slide materi
+#include <stdio.h>
+#include <conio.h>
+#include <iostream.h>
+
+main()
+{
+float a, b, c, d, e, f, x = 7, y = 3;
+  clrscr();
+   a = x < y;
+   b = x > y;
+   c = x != y;
+   d = x <= y;
+   e = x >= y;
+   f = x == y;
+
+   cout << "Operator Relasi C++ \n \n";
+   cout << "Apakah " << x << " < " << y << " ? " << a << endl;
+   cout << "Apakah " << x << " > " << y << " ? " << b << endl;
+   cout << "Apakah " << x << " != " << y << " ? " << c << endl;
+   cout << "Apakah " << x << " <= " << y << " ? " << d << endl;
+   cout << "Apakah " << x << " >= " << y << " ? " << e << endl;
+   cout << "Apakah " << x << " == " << y << " ? " << f << endl;
+   getch();
+}
