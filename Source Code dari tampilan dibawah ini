@@ -1,0 +1,39 @@
+//Buatlah Source Code dari tampilan dibawah ini(pada slide materi), dimana nilai “m” ditentukan sendiri oleh mahasiswa#include <stdio.h>
+#include <conio.h>
+#include <iostream.h>
+
+main()
+{
+
+   float a, b, c, d, m;
+
+   clrscr();
+   cout<<"Masukan Nilai M = "; cin >> m;
+   cout<<"*--*--*--*--*--*--*\n";
+   a = m >= 0 && m >= 150;
+   b = m >= 0 && m <= 150;
+   c = m >= 0 || m <= 150;
+   d = m <= 0 || m >= 150;
+
+   cout<<endl;
+   cout<<"--- OPERATOR LOGIKA ---" << endl;
+   cout<<"=======================" << endl;
+   cout<<"<" << m <<"> >= 0 && " << m << ">=150>-->" << a << endl;
+   cout<<"<" << m <<"> >= 0 && " << m << "<=150>-->" << b << endl;
+   cout<<"<" << m <<"> >= 0 || " << m << "<=150>-->" << c << endl;
+   cout<<"<" << m <<"> <= 0 || " << m << ">=150>-->" << d << endl;
+   getch();
+   }
+3.     Buatlah program untuk menghitung panjang kata berikut ini:
+Akademi Manajemen Informatika dan Komputer Bina Sarana Informatika
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#include <iostream.h>
+main()
+{
+ char kata[] = "Akademi Manajemen Informatika dan Komputer Bina Sarana Informatika";
+   cout << "Akademi Manajemen Informatika dan Komputer Bina Sarana Informatika \n";
+   cout << "Jumlah Kata = " << strlen(kata);
+   getch();
+}
