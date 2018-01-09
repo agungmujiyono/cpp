@@ -1,0 +1,24 @@
+//menghitung Luas dan Volume
+#include<stdio.h>
+#include<conio.h>
+
+main()
+{
+int p,l,t;
+clrscr();
+printf("\n");
+printf("Hitung Luas dan Volume\n");
+float V,Lu;
+printf("Masukan Nilai Panjang: ");
+scanf("%d",&p);
+printf("Masukan Nilai Lebar: ");
+scanf("%d",&l);
+printf("Masukan Nilai Tinggi: ");
+scanf("%d",&t);
+V=p*l*t;
+Lu=(2*p*t)+(2*p*l)+(2*t*l);
+printf("\nVolume=%0.2f",V);
+printf("\nLuas=%0.2f",Lu);
+getch();
+
+}
