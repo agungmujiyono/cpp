@@ -1,0 +1,61 @@
+Latihan Array
+
+Nama : MOH AGUNG MUJIYONO
+NIM  : 12174390
+=============================================*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    char NAMA [20][20],tm[20];
+    int NIM[20],tn;
+
+    int n=2;
+    
+
+    for (int C=0; C<n; C++)
+    {
+        cout << "Nama Mahasiswa["<<C<<"] = ";
+        cin.getline(NAMA[C], 20);
+        cout << "Nomor NIM = ";
+        cin  >> NIM [C];
+    }    
+    cout << endl;
+
+    cout << "\nDaftar Nama Mahasiswa \n";
+        for (int D=1; D<n; D++)
+        {
+            for (int x=0; x<n-1;x++){
+                if(NIM[x] > NIM[x+1]){
+                    tn=NIM[x];
+                    NIM[x]=NIM[x+1];
+                    NIM[x+1]=tn;
+
+                    strcpy (tm,NAMA[x]);
+                    strcpy (NAMA[x],NAMA[x+1]);
+                    strcpy (NAMA[x+1],tm);
+        
+                }
+            }
+        }
+
+
+        cout << "\nDaftar Nama Mahasiswa Diurutkan Berdasarkan Nama dan Nim\n";
+        for (int D=0; D<n; D++)
+        {
+        cout << "Nama Mahasiswa D4 TMD ITB Urutan Ke-";
+        cout << D+1 << " = " << NAMA[D] << endl; 
+        cout << "Nim Mahasiswa Tersebut : ";
+        cout << NIM[D] <<endl;
+        }
+        
+    cout << endl << endl;
+    
+    system ("pause");
+    return 0;
+
+}
+
+
