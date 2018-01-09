@@ -1,0 +1,161 @@
+#include <iostream>//fungsi untuk program yang melibatkan objek cout dan cin
+#include <stdio.h>
+#include <conio.h>//Fungsi-fungsi pustaka yang umum digunakan untuk menampilkan hasil seperti bila melibatkan clrscr(), yaitu perintah untuk membersihkan layar dan fungsi getch() untuk menerima sembarang input keyboard dari user.
+#include <stdlib.h>//untuk fungsi-fungsi pustaka yang umum digunakan untuk menampilkan hasil prototype-nya berada di file judul.
+#include <string.h>//diperlukan bila melibatkantipe string dan fungsi
+
+int daftar();//perkenalkan fungsi daftar
+int masuk();//perkenalkan fungsi masuk
+int krsfungsi();//perkenalkan fungsi krs
+
+static struct {//struktur tetap data mahasiswa dan elemen yg mengisi
+char nama[50];
+char jurusan[3];
+char kelas[3];
+char nim[20];
+char jjg[5];
+int smt, th;
+char dw[50];
+}data_mhs;
+
+static struct {//structure tetap data krs dan elemen yg mengisi
+int kode_mk;
+char kode_dosen[5];
+char nama_dosen[20];
+char mt_kuliah[50];
+int sks;
+} krs[10]={//daftar isian tetap krs berisi kode, kode dosen, nama dosen dan sks
+{101 ,"XXX","?????????       ","Pendidikan Pancasila        ",2},
+{104 ,"NGG","Anggraini       ","Bahasa Inggris I            ",2},
+{153 ,"DDW","Ardian Dwi Praba","Pengantar TI & Komunikasi   ",3},
+{207 ,"HYT","Haryanto        ","Logika dan Algoritma        ",4},
+{712 ,"DAO","Dadang Daryono  ","Entrepreneurship            ",3},
+{894 ,"DDW","Ardian Dwi Praba","Dasar Pemograman            ",4},
+};
+char j, user[50], pass[50];//variabel global j=jawab, username dan password
+int main()
+{
+while(j!='a'||j!='b'||j!='c')//syarat pengulangan jika input bukan keyword a/b/c
+{
+cout<<"--------------------------------------------------------\n";
+cout<<"          SYSTEM KRS OFFLINE AMIK BSI BSD N1            \n";
+cout<<"--------------------------------------------------------\n";
+cout<<"a. Daftar\n";
+cout<<"b. Masuk\n";
+cout<<"c. Keluar\n";
+cout<<"= Masukan Kode Pilihan =\n";
+scanf("%c",&j);
+switch(j)//memeriksa input data variabel j, jika a/b/c maka dijalankan
+{
+case 'a':
+daftar();//jika pilih a maka akan memanggil funsi daftar
+break;
+case 'b'://jika pilih a maka akan memanggil funsi masuk
+masuk();
+break;
+case 'c'://jika pilihan c maka akan mengakhiri program
+cout<<"\n\nTerimakasih Telah Menggunakan System ini\n\n";
+system("pause");
+return 0;
+}
+}
+clrscr();//clear screen
+getch();
+}
+int daftar()//funsi masuk sistem krs offline
+{
+do{//menjalankan perintah dibawahnya dan mengulang bila memenuhi syarat
+cout<<"--------------------------------------------------------\n";
+cout<<"---Membuat Akun KRS Offline AMIK BSI BSD N1---\n\n";
+cout<<"--------------------------------------------------------\n";
+cout<<"Masukkan Data Anda Dengan Benar dan Lengkap\n";
+cout<<"Nama Lengkap                  : "; fflush(stdin); gets(data_mhs.nama);//fungsi (fflush(stdin);) semua data yang ada di buffer ke dalam file dan sekaligus mengosongkan kembali buffer untuk menerima data (input atau output) sedangkan fungsi (gets) untuk bisa menambahkan spasi dalam string inputan. 
+cout<<"NIM                           : ";cin>>data_mhs.nim;
+cout<<"Username                      : ";cin>>user;
+cout<<"Password                      : ";cin>>pass;
+cout<<"Jurusan (MI/KA/TK/TI)         : ";cin>>data_mhs.jurusan;
+cout<<"Jenjang(S1/D3)                : ";cin>>data_mhs.jjg;
+cout<<"Semester (1-8)                : ";cin>>data_mhs.smt;
+cout<<"Tahun Akademis                : ";cin>>data_mhs.th;
+cout<<"Dosen Wali                    : ";fflush(stdin); gets(data_mhs.dw);
+cout<<"Ingin Mengubah Data yang Telah Diinputkan ? (Y/T):\n\n";cin>>j;
+}
+while(j=='y'||j=='Y');//syarat pengulangan kembali ke do
+clrscr();
+cout<<"\n\nSelamat Pendaftaran Anda Sukses, Akun Anda Telah Aktif !!";
+cout<<"\nMasuk ?(Y/T) : ";cin>>j;
+if(j=='Y'||j=='y')
+{//memanggil fungsi masuk
+masuk();
+}
+else
+{
+cout<<"\n\nTerima kasih telah bergabung dengan kami di System KRS Offline BSI BSD N1";
+}
+getch();
+}
+int masuk()//fungsi masuk krs offline
+{
+system("cls");
+cout<<"---Masuk Sekarang !---\n";
+int y;//variabel lokal fungsi masuk
+char masukuser[50];
+char masukpass[50];
+cout<<"\nUSER         : ";cin>>masukuser;
+cout<<"\nPASSWORD     : ";cin>>masukpass;
+if(strcmp(masukuser,user)==0&&strcmp(masukpass,pass)==0)
+{
+cout<<"\nBerhasil Masuk";
+cout<<"Ketik (Y) untuk Cetak KRS !\n";
+scanf("%d",&y);
+clrscr();
+krsfungsi();//memanggil fungsi KRS
+}
+else{//jika tidak memenuhi syarat
+cout<<"Username/Password Salah, atau Akun Anda Tidak Aktif.\n";
+cout<<"\na. Masuk Lagi\nb. Daftar Sekarang\n ::";cin>>j;
+if(j=='a'||j=='A')
+{
+masuk();//memanggil fungsi masuk
+}
+else if(j=='b'||j=='B')
+{
+daftar();//memanggil fungsi daftar
+}
+}
+getch();
+system("cls");
+};
+
+int krsfungsi()//fungsi krs(print KRS)
+{
+int i, totalsks;//variabel lokal
+totalsks=0;//nilai awal variabel total sks
+cout<<"\n-------------------------------------------------------------------------\n";
+cout<<"\nKARTU RENCANA STUDY (KRS)\n";
+cout<<"\n-------------------------------------------------------------------------\n";
+cout<<"\nNama Mahasiswa    : "<<data_mhs.nama;
+cout<<"\nNIM               : "<<data_mhs.nim;
+cout<<"\nJenjang           : "<<data_mhs.jjg;
+cout<<"\nTahun Akademis    : "<<data_mhs.th;
+cout<<"\nSemester          : "<<data_mhs.smt;
+cout<<"\nJurusan           : "<<data_mhs.jurusan;
+cout<<"\n-------------------------------------------------------------------------\n";
+cout<<" NO | KMK | K_D |    NAMA DOSEN    |         MATA KULIAH          | SKS |";
+cout<<"\n-------------------------------------------------------------------------\n";
+for(i=0;i<6;i++)
+{
+cout<<"\n| "<<i+1<<" | "<<krs[i].kode_mk<<" | "<<krs[i].kode_dosen<<" | "<<krs[i].nama_dosen<<" | "<<krs[i].mt_kuliah<<" |  "<<krs[i].sks<<"  |";
+totalsks+=krs[i].sks;//mencari total smt
+}
+cout<<"\n-------------------------------------------------------------------------\n";
+cout<<"                    Total SKS yang Diambil                        |  "<<totalsks<<" |";
+cout<<"\n-------------------------------------------------------------------------\n";
+
+cout<<"\n\n\nDisetujui Oleh\n";
+cout<<"Penasehat Akademis,\t\t\t\t\tMahasiswa Ybs,\n\n\n\n\n\n\n";
+cout<<"( "<<data_mhs.dw<<" )\t\t\t\t\t\t( "<<data_mhs.nama<<" )";
+getch();
+}
+
+
