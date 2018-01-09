@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<conio.h>
+
+main()
+{
+int p, l, k;
+clrscr();
+printf("\n");
+printf("Hitung Luas dan Keliling Persegi\n");
+printf("Masukan Panjang:");
+scanf("%d",&p);
+printf("Masukan Lebar:");
+scanf("%d",&l);
+
+k=2*(p*1);
+
+printf("Keliling Persegi Panjang = %d \n",k);
+getch();
+return 0;
+
+}
