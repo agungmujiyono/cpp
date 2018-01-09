@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<conio.h>
+#include<iostream.h>
+
+main()
+{
+
+float kg,harga,total;
+cout<<"Harga Jeruk perkilo=";cin>>harga;
+cout<<"Jumlah Kilo Gram=";cin>>kg;
+total=harga*kg;
+cout<<"Total Harga Yang Harus Dibayar="<<total<<endl;
+getch();
+
+}
