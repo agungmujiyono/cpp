@@ -1,0 +1,33 @@
+//menghitung panjang kata
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#include <iostream.h>
+main()
+{
+ char kata[] = "Akademi Manajemen Informatika dan Komputer Bina Sarana Informatika";
+   cout << "Akademi Manajemen Informatika dan Komputer Bina Sarana Informatika \n";
+   cout << "Jumlah Kata = " << strlen(kata);
+   getch();
+}
+4.     Buatlah program untuk menggabungkan dua buah string
+Kalimat 1 = Manajemen
+Kalimat 2 = Informatika
+          Menjadi seperti berikut :
+          Manajemen Informatika
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#include <iostream.h>
+
+main()
+{
+   char kata[20];
+   clrscr();
+
+   strcat(kata, "Manajemen");
+   strcat(kata, "Informatika");
+   puts(kata);
+   getch();
+}
+
